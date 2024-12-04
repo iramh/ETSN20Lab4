@@ -1,0 +1,5 @@
+This is a line with the word cat.  
+This is a line with the word dog.
+This is another line with the word cat.
+dog
+cat
