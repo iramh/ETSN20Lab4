@@ -13,26 +13,26 @@ public class FindWordInFile {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
 
-                String[] sentences = line.split("(?<=\\.|!|\\?)\\s*");
+                // String[] sentences = line.split("(?<=\\.|!|\\?)\\s*");
 
-                for (String sentence : sentences) {
-                    if (sentence.contains(word)) {
-                        System.out.println(sentence);
-                        foundTheWord = true;
-                    }
-                }
-
-                // if (line.contains(word)) {
-                //     System.out.println(line); 
-                //     foundTheWord = true;
+                // for (String sentence : sentences) {
+                //     if (sentence.contains(word)) {
+                //         System.out.println(sentence);
+                //         foundTheWord = true;
+                //     }
                 // }
+
+                if (line.contains(word)) {
+                    System.out.println(line); 
+                    foundTheWord = true;
+                }
             }
 
             if (!foundTheWord) {
                 System.out.println("This file does not contain any sentences with the word: " + word);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage());
         } finally {
             if (scanner != null) {
                 scanner.close();
@@ -42,7 +42,7 @@ public class FindWordInFile {
 
     public static void main(String[] args) {
         if (args.length != 2) {
-            System.out.println("Not enough arguments.");
+            System.err.println("The number of arguments should be 2.");
         }
 
         String word = args[0];
